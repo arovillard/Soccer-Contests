@@ -70,6 +70,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:team_a_name, :team_b_name, :team_a_score, :team_b_score)
+      params.require(:entry).permit(:team_a_name, :team_b_name, :team_a_score, :team_b_score, :game_id)
     end
 end

@@ -1,34 +1,41 @@
  <%= form_for @contest do |f| %>
 
- <% @games.each do |game| %>
-  <%= f.fields_for :entries, Entry.new do |entry| %>
-    <div class="games">
-      <div class="field">
-        <p><%= game.team_a_name %></p>
-        <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
-      </div>
+<% @games.each do |game| %>
+  <% if game.entries.empty? %>
+    <%= f.fields_for :entries, Entry.new do |entry| %>
+      <% @show_submit = true %>
+      <%= entry.hidden_field :game_id, :value => game.id %>
+      <div class="games">
+        <div class="field">
+          <p><%= game.team_a_name %></p>
+          <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
+        </div>
 
-      <div class="field">
-        <%= entry.number_field :team_a_score %>
-      </div>
-      <div class="dash">
-        <p>-</p>
-      </div>
+        <div class="field">
+          <%= entry.number_field :team_a_score %>
+        </div>
+        <div class="dash">
+          <p>-</p>
+        </div>
 
-      <div class="field">
-        <%= entry.number_field :team_b_score %>
-      </div>
+        <div class="field">
+          <%= entry.number_field :team_b_score %>
+        </div>
 
-      <div class="field">
-        <p><%= game.team_b_name %></p>
-        <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
+        <div class="field">
+          <p><%= game.team_b_name %></p>
+          <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
+        </div>
       </div>
-    </div>
-    <div class="clear-both"></div>
+      <div class="clear-both"></div>
+    <% end %>
   <% end %>
-  <% end %>
+<% end %>
+
+<% if @show_submit %>
     <div class="actions">
       <%= f.submit %>
     </div>
+    <% end %>
 
 <% end %>
