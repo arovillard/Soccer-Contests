@@ -1,0 +1,33 @@
+<h1>Listing entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team a name</th>
+      <th>Team a score</th>
+      <th>Team b score</th>
+      <th>Team b name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.team_a_name %></td>
+        <td><%= entry.team_a_score %></td>
+        <td><%= entry.team_b_score %></td>
+        <td><%= entry.team_b_name %></td>
+        <td><%= link_to 'Show', contest_entry_path(entry) %></td>
+        <td><%= link_to 'Edit', edit_contest_entry_path(@contest, entry) %></td>
+        <td><%= link_to 'Destroy', [@contest, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry', new_contest_entry_path(@contest) %>

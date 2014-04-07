@@ -1,0 +1,36 @@
+ <%= form_for @contest do |f| %>
+
+ <% (1..4).each do |n| %>
+  <%= f.fields_for :entries, Entry.new do |entry| %>
+    <div class="games">
+      <div class="field">
+        <%= entry.label :team_a_name %><br>
+        <%= entry.text_field :team_a_name %>
+      </div>
+
+      <div class="field">
+        <%= entry.label :team_a_score %><br>
+        <%= entry.number_field :team_a_score %>
+      </div>
+      <div class="dash">
+        <p>-</p>
+      </div>
+
+      <div class="field">
+        <%= entry.label :team_b_score %><br>
+        <%= entry.number_field :team_b_score %>
+      </div>
+
+      <div class="field">
+        <%= entry.label :team_b_name %><br>
+        <%= entry.text_field :team_b_name %>
+      </div>
+    </div>
+    <div class="clear-both"></div>
+  <% end %>
+  <% end %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>

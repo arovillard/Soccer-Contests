@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team a name:</strong>
+  <%= @entry.team_a_name %>
+</p>
+
+<p>
+  <strong>Team b name:</strong>
+  <%= @entry.team_b_name %>
+</p>
+
+<p>
+  <strong>Team a score:</strong>
+  <%= @entry.team_a_score %>
+</p>
+
+<p>
+  <strong>Team b score:</strong>
+  <%= @entry.team_b_score %>
+</p>
+
+<%= link_to 'Edit', edit_contest_entry_path %> |
+<%= link_to 'Back', contest_entry_path %>
