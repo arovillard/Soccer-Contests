@@ -1,15 +1,14 @@
  <%= form_for @contest do |f| %>
 
- <% (1..4).each do |n| %>
+ <% @games.each do |game| %>
   <%= f.fields_for :entries, Entry.new do |entry| %>
     <div class="games">
       <div class="field">
-        <%= entry.label :team_a_name %><br>
-        <%= entry.text_field :team_a_name %>
+        <p><%= game.team_a_name %></p>
+        <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
       </div>
 
       <div class="field">
-        <%= entry.label :team_a_score %><br>
         <%= entry.number_field :team_a_score %>
       </div>
       <div class="dash">
@@ -17,13 +16,12 @@
       </div>
 
       <div class="field">
-        <%= entry.label :team_b_score %><br>
         <%= entry.number_field :team_b_score %>
       </div>
 
       <div class="field">
-        <%= entry.label :team_b_name %><br>
-        <%= entry.text_field :team_b_name %>
+        <p><%= game.team_b_name %></p>
+        <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
       </div>
     </div>
     <div class="clear-both"></div>

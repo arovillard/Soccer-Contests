@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contest_id: 1
+  team_a_name: MyString
+  team_b_name: MyString
+  team_a_result: 1
+  team_b_result: 1
+  game_date: 2014-04-06 20:51:17
+  group: MyString
+
+two:
+  contest_id: 1
+  team_a_name: MyString
+  team_b_name: MyString
+  team_a_result: 1
+  team_b_result: 1
+  game_date: 2014-04-06 20:51:17
+  group: MyString

@@ -68,10 +68,6 @@ class EntriesController < ApplicationController
       @entry = @contest.entries.find(params[:id])
     end
 
-    def load_contest
-      @contest = Contest.find(params[:contest_id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
       params.require(:entry).permit(:team_a_name, :team_b_name, :team_a_score, :team_b_score)
