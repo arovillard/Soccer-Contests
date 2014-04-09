@@ -25,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% @contest.entries.each do |entry| %>
+    <% current_user.entries.each do |entry| %>
       <tr>
         <td><%= entry.team_a_name %></td>
         <td><%= entry.team_a_score %></td>

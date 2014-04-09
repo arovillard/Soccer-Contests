@@ -1,4 +1,5 @@
 Wcc::Application.routes.draw do
+  devise_for :users
   root to: 'contests#index'
   resources :contests do
     resources :entries
