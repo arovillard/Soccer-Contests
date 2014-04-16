@@ -4,9 +4,9 @@
   <strong>Name:</strong>
   <%= @contest.name %>
 </p>
-
-<%= render 'form_entry' %>
-
+<div class="row">
+  <div class="small-6 large-centered columns"><%= render 'form_entry' %></div>
+</div>
 <%= link_to 'Back', contests_path %>
 
 <h1>Listing entries</h1>
@@ -25,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% current_user.entries.each do |entry| %>
+    <% @contest.entries.where(:user_id => current_user).each do |entry| %>
       <tr>
         <td><%= entry.team_a_name %></td>
         <td><%= entry.team_a_score %></td>

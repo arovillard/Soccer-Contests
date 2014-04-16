@@ -22,3 +22,16 @@
 .games div {
   float: left;
 }
+
+.nav-full-width {
+  width: 100%;
+  background: #7FA52F;
+}
+.top-bar-section ul {
+  background: #7FA52F !important;
+}
+
+.number-field {
+  width: 60px !important;
+  margin: 0 10px !important;
+}

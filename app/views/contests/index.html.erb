@@ -1,27 +1,12 @@
-<h1>Listing contests</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contests.each do |contest| %>
-      <tr>
-        <td><%= contest.name %></td>
-        <td><%= link_to 'Show', contest %></td>
-        <td><%= link_to 'Edit', edit_contest_path(contest) %></td>
-        <td><%= link_to 'Destroy', contest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row" data-equalizer>
+  <% @contests.each do |contest| %>
+    <%= link_to(contest) do %>
+      <div class="large-12 columns panel" data-equalizer-watch>
+        <h3><%= contest.name %></h3>
+          <div>
+            <img style="width: 100%;" src="images/brasil.jpg">
+          </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Contest', new_contest_path %>
+  <% end %>
+</div>
