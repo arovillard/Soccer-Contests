@@ -11,7 +11,8 @@ class ContestsController < ApplicationController
   # GET /contests/1
   # GET /contests/1.json
   def show
-    @games = @contest.games
+    items = current_user.entries.where(:contest_id => @contest.id).pluck(:game_id)
+    @games = @contest.games.where.not(:id => items)
   end
 
   # GET /contests/new
@@ -67,6 +68,7 @@ class ContestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contest
       @contest = Contest.find(params[:id])
+      @entries = @contest.entries.where(:user_id => current_user)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

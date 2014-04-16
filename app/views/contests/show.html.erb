@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @contest.name %>
 </p>
 <div class="row">
-  <div class="small-6 large-centered columns"><%= render 'form_entry' %></div>
+  <div class="small-12 medium-9 large-9 small-centered columns"><%= render 'form_entry' %></div>
 </div>
 <%= link_to 'Back', contests_path %>
 
@@ -25,7 +23,7 @@
   </thead>
 
   <tbody>
-    <% @contest.entries.where(:user_id => current_user).each do |entry| %>
+    <% @entries.each do |entry| %>
       <tr>
         <td><%= entry.team_a_name %></td>
         <td><%= entry.team_a_score %></td>

@@ -48,6 +48,13 @@
           </nav>
       </div>
     </div>
+    <% if notice %>
+      <div data-alert="" class="alert-box success">
+        <div class="row">
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
     <div class="row">
       <div class="small columns"><%= yield %></div>
     </div>
