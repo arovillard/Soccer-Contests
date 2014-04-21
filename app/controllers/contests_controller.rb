@@ -12,7 +12,7 @@ class ContestsController < ApplicationController
   # GET /contests/1.json
   def show
     items = current_user.entries.where(:contest_id => @contest.id).pluck(:game_id)
-    @games = @contest.games.where.not(:id => items)
+    @games = @contest.games.where.not(:id => items).where(:active => true)
     @results = @contest.games.where(:id => items)
   end
 

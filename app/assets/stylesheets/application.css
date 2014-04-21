@@ -88,5 +88,23 @@
 .fa-check-circle-o, .fa-ellipsis-h, .fa-times-circle-o {
   color: #fff;
   text-shadow: 3px 2px 3px #263316;
+}
 
+.my-result {
+  margin: 10px 0;
+}
+
+
+.result p {
+  display: inline;
+  margin: 0 10px;
+}
+
+.no-result-text{
+  width: 70%;
+}
+
+.no-result-text p {
+  margin: 0 !important;
+  font-size: 1em !important;
 }
