@@ -1,66 +1,82 @@
-<h3><strong><%= @contest.name %></strong></h3>
-<%= link_to 'Back', contests_path %>
-<div class="row">
-  <div class="small-12 medium-9 large-7 small-centered columns"><%= render 'form_entry' %></div>
-</div>
+<br><br>
+<% unless @games.empty? %>
+  <h3><strong><%= @contest.name %></strong></h3>
+    <%= link_to 'Back', contests_path %>
+    <div class="row">
+    <div class="small-12 medium-9 large-7 small-centered columns"><%= render 'form_entry' %></div>
+  </div>
+<% else %>
+  <br>
+  <br>
+  <h3>There are no new games, please check again later</h3>
+  <br>
+  <br>
+<% end %>
 
-<div class="row">
-  <div class="small-5 columns result">
-    <h3><strong>Your Guess</strong></h3>
-  </div>
-  <div class="small-5 columns result">
-    <h3><strong>Game Result</strong></h3>
-  </div>
-  <div class="small-2 columns result">
-    <h3><strong>Points</strong></h3>
-  </div>
-</div>
+<hr>
+<br><br>
 
-<% @entries.each do |entry| %>
-<% result = @results.find{|result| result.id == entry.game_id} %>
-  <div class="games row">
+<% unless @entries.empty? %>
+  <div class="row">
     <div class="small-5 columns result">
-      <div>
-        <p><%= entry.team_a_name %></p>
-      </div>
-      <div>
-        <p><%= entry.team_a_score %></p>
-        <p>-</p>
-        <p><%= entry.team_b_score %></p>
-      </div>
-      <div>
-        <p><%= entry.team_b_name %></p>
-      </div>
+      <h3><strong>Your Guess</strong></h3>
     </div>
     <div class="small-5 columns result">
-      <% if result.team_a_result || result.team_b_result %>
+      <h3><strong>Game Result</strong></h3>
+    </div>
+    <div class="small-2 columns result">
+      <h3><strong>Points</strong></h3>
+    </div>
+  </div>
+  <% @entries.each do |entry| %>
+  <% result = @results.find{|result| result.id == entry.game_id} %>
+    <div class="games row">
+      <div class="small-5 columns result">
         <div>
-          <p><%= result.team_a_name %></p>
+          <p><%= entry.team_a_name %></p>
         </div>
         <div>
-          <p><%= result.team_a_result %></p>
+          <p><%= entry.team_a_score %></p>
           <p>-</p>
-          <p><%= result.team_b_result %></p>
+          <p><%= entry.team_b_score %></p>
         </div>
         <div>
-          <p><%= result.team_b_name %></p>
+          <p><%= entry.team_b_name %></p>
         </div>
-      <% else %>
-        <div class="no-result-text">
-          <p>Game is on <%= result.game_date.to_s(:short) %>, check after the game to see if you won!</p>
+        <div>
+          <%= link_to 'Edit', edit_contest_entry_path(@contest, entry) %>
         </div>
-      <% end %>
+      </div>
+      <div class="small-5 columns result">
+        <% if result.team_a_result || result.team_b_result %>
+          <div>
+            <p><%= result.team_a_name %></p>
+          </div>
+          <div>
+            <p><%= result.team_a_result %></p>
+            <p>-</p>
+            <p><%= result.team_b_result %></p>
+          </div>
+          <div>
+            <p><%= result.team_b_name %></p>
+          </div>
+        <% else %>
+          <div class="no-result-text">
+            <p>Game is on <%= result.game_date.to_s(:short) %>, check after the game to see if you won!</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="small-2 result">
+        <% if result.team_a_result == nil || result.team_b_result == nil %>
+          <%= icon('ellipsis-h', '', class: 'fa-3x') %>
+        <% elsif entry.team_a_score == result.team_a_result && entry.team_b_score == result.team_b_result %>
+          <%= icon('check-circle-o', '', class: 'fa-3x') %>
+          <p>Correct!</p>
+        <% elsif entry.team_a_score != result.team_a_result || entry.team_b_score != result.team_b_result %>
+          <%= icon('times-circle-o', '', class: 'fa-3x') %>
+          <p>Incorrect!</p>
+        <% end %>
+      </div>
     </div>
-    <div class="small-2 result">
-      <% if result.team_a_result == nil || result.team_b_result == nil %>
-        <%= icon('ellipsis-h', '', class: 'fa-3x') %>
-      <% elsif entry.team_a_score == result.team_a_result && entry.team_b_score == result.team_b_result %>
-        <%= icon('check-circle-o', '', class: 'fa-3x') %>
-        <p>Correct!</p>
-      <% elsif entry.team_a_score != result.team_a_result || entry.team_b_score != result.team_b_result %>
-        <%= icon('times-circle-o', '', class: 'fa-3x') %>
-        <p>Incorrect!</p>
-      <% end %>
-    </div>
-  </div>
+  <% end %>
 <% end %>

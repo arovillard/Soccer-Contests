@@ -10,34 +10,29 @@
         </ul>
       </div>
     <% end %>
-    <div class="games">
-      <div class="field">
-        <%= f.label :team_a_name %><br>
-        <%= f.text_field :team_a_name %>
+    <div class="games row">
+      <div class="small-4 columns team-left">
+        <p><%= @entry.team_a_name %></p>
       </div>
-
-      <div class="field">
-        <%= f.label :team_a_score %><br>
-        <%= f.number_field :team_a_score %>
+      <div class="small-4 columns centered">
+        <div class="row">
+          <div class="small-5 columns field-left">
+            <%= f.number_field :team_a_score, :class => 'number-field' %>
+          </div>
+          <div class="small-2 columns dash">
+            <p>-</p>
+          </div>
+          <div class="small-5 columns">
+            <%= f.number_field :team_b_score, :class => 'number-field' %>
+          </div>
+        </div>
       </div>
-      <div class="dash">
-        <p>-</p>
-      </div>
-
-      <div class="field">
-        <%= f.label :team_b_score %><br>
-        <%= f.number_field :team_b_score %>
-      </div>
-
-      <div class="field">
-        <%= f.label :team_b_name %><br>
-        <%= f.text_field :team_b_name %>
-      </div>
-
-
-      <div class="actions">
-        <%= f.submit %>
+      <div class="small-4 columns team-right">
+        <p><%= @entry.team_b_name %></p>
       </div>
     </div>
     <div class="clear-both"></div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   <% end %>
