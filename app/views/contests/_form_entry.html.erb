@@ -9,7 +9,7 @@
           <p><%= game.team_a_name %></p>
           <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
         </div>
-        <div class="small-4 columns">
+        <div class="small-4 columns centered">
           <div class="row">
             <div class="small-5 columns field-left">
               <%= entry.number_field :team_a_score, :class => 'number-field' %>
@@ -32,7 +32,7 @@
   <% end %>
   <% if @show_submit %>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Submit Results', :class => 'button expand submit-results' %>
     </div>
   <% end %>
 <% end %>

@@ -11,7 +11,8 @@
  *= require_self
  *= require foundation_and_overrides
 
- *= require_tree .
+ *= require_tree.
+ *= require font-awesome
  */
 
 
@@ -32,12 +33,17 @@
 }
 
 .number-field {
-  width: 60px !important;
-  margin: 0 10px !important;
+  width: 45px !important;
+  margin: 0 5px !important;
 }
 
 .team-left {
   text-align: right;
+  clear: both;
+}
+
+.team-left p {
+  float: right;
 }
 
 .games {
@@ -56,9 +62,49 @@
 }
 
 .dash {
-  text-align: center;
+  display: block;
+  margin: 0px auto;
 }
 
 .field-left {
   margin-left: 0 !important;
+}
+
+.submit-results {
+  border: 3px solid #2B6796 !important;
+  border-radius: 30px;
+  text-shadow: 3px 2px 3px #263316;
+
+}
+
+.centered {
+  margin: 0 auto!important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.fa-check-circle-o, .fa-ellipsis-h, .fa-times-circle-o {
+  color: #fff;
+  text-shadow: 3px 2px 3px #263316;
+}
+
+.my-result {
+  margin: 10px 0;
+}
+
+
+.result p {
+  display: inline;
+  margin: 0 10px;
+}
+
+.no-result-text{
+  width: 70%;
+}
+
+.no-result-text p {
+  margin: 0 !important;
+  font-size: 1em !important;
 }

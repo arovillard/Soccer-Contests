@@ -5,14 +5,15 @@ class ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @contests = Contest.all
+    @contests = Contest.all.where(:active => true)
   end
 
   # GET /contests/1
   # GET /contests/1.json
   def show
     items = current_user.entries.where(:contest_id => @contest.id).pluck(:game_id)
-    @games = @contest.games.where.not(:id => items)
+    @games = @contest.games.where.not(:id => items).where(:active => true)
+    @results = @contest.games.where(:id => items)
   end
 
   # GET /contests/new
@@ -73,6 +74,6 @@ class ContestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params
-      params.require(:contest).permit(:name, entries_attributes: [:id, :team_a_name, :team_b_name, :team_a_score, :team_b_score, :game_id, :user_id])
+      params.require(:contest).permit(:name, :active, entries_attributes: [:id, :team_a_name, :team_b_name, :team_a_score, :team_b_score, :game_id, :user_id])
     end
 end

@@ -21,6 +21,11 @@ gem 'foundation-rails'
 
 gem 'rails_12factor'
 
+gem 'font-awesome-sass'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
