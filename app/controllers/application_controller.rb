@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def load_contest
     @contest = Contest.find(params[:contest_id])
   end
+
 end

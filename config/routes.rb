@@ -5,7 +5,9 @@ Wcc::Application.routes.draw do
   root to: 'contests#index'
   resources :contests do
     resources :entries
-    resources :games
+    resources :games do
+      resources :winners
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
