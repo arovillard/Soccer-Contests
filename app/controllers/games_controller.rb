@@ -83,6 +83,8 @@ class GamesController < ApplicationController
           (raffle_number = rand(1..1000)) until taken.include?(raffle_number) == false
           var = Winner.new(:user_id => winner.user_id, :entry_id => winner.id, :game_id => winner.game_id, :raffle_number => raffle_number)
           var.save
+          @user = User.find(winner.user_id)
+          WinnerMailer.winner_email_2(@user).deliver
         end
       end
     end

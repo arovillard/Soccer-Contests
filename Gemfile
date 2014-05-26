@@ -27,6 +27,8 @@ gem 'rails_12factor'
 
 gem 'font-awesome-sass'
 
+gem 'mailcatcher'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 
