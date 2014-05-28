@@ -1,4 +1,4 @@
-/* ---------------------- 
+/* ----------------------
 Stylesheet Guide
 -------------------------
 
@@ -31,15 +31,15 @@ BACK TO TOP BUTTON
 
 @font-face {
     font-family:'open_sansregular';
-    src: url('../fonts/opensans-regular-webfont.eot');
-    src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/opensans-regular-webfont.woff') format('woff'), url('../fonts/opensans-regular-webfont.ttf') format('truetype'), url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    src: asset-url("opensans-regular-webfont.eot", font);
+    src: asset-url("opensans-regular-webfont.eot?#iefix", font) format('embedded-opentype'), asset-url("opensans-regular-webfont.woff", font) format('woff'), asset-url("opensans-regular-webfont.ttf", font) format('truetype'), asset-url("opensans-regular-webfont.svg#open_sansregular", font) format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family:'oswaldregular';
-    src: url('../fonts/oswald-regular-webfont.eot');
-    src: url('../fonts/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/oswald-regular-webfont.woff') format('woff'), url('../fonts/oswald-regular-webfont.ttf') format('truetype'), url('../fonts/oswald-regular-webfont.svg#oswaldregular') format('svg');
+    src: asset-url("oswald-regular-webfont.eot", font);
+    src: asset-url("oswald-regular-webfont.eot?#iefix", font) format('embedded-opentype'), asset-url("oswald-regular-webfont.woff", font) format('woff'), asset-url("oswald-regular-webfont.ttf", font) format('truetype'), asset-url("oswald-regular-webfont.svg#oswaldregular", font) format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -872,15 +872,15 @@ textarea {
     float:left;
     position:relative;
     width:33.3333333333%;
-    -webkit-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -moz-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -ms-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -o-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+    -webkit-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -moz-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -ms-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -o-transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
     transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
-    -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -moz-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -ms-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -o-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+    -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -moz-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -ms-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -o-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
     transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 .team-gallery.quarter li {
@@ -912,20 +912,20 @@ textarea {
     transform: scale(1.5) rotate(15deg);
     -webkit-transform: scale(1.5) rotate(15deg);
     -ms-transform: scale(1.5) rotate(15deg);
-} 
+}
 .team-gallery li a.clb-photo,.team-gallery li a.clb-iframe,.team-gallery li a.clb-link {
     overflow:hidden;
     background-position:center center;
     background-repeat:no-repeat;
 }
 .team-gallery li a.clb-photo {
-    background-image:url('../images/zoom.png');
+    background-image: asset-url("zoom.png", image);
 }
 .team-gallery li a.clb-iframe {
-    background-image:url('../images/iframe.png');
+    background-image: asset-url("iframe.png", image);
 }
 .team-gallery li a.clb-link {
-    background-image:url('../images/link.png');
+    background-image: asset-url("link.png", image);
 }
 .button-widget {
     margin: 0px !important;
@@ -1227,7 +1227,7 @@ textarea {
     bottom: 0px;
     right: 15px;
     display: none;
-    background-image:url('../images/gototop.png');
+    background-image: asset-url("gototop.png", image);
     background-repeat:no-repeat;
     background-position:center center;
     width:60px;

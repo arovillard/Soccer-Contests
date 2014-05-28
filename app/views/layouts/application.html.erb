@@ -18,13 +18,164 @@
     <%= stylesheet_link_tag    "jquery.bxslider" %>
     <%= stylesheet_link_tag    "media" %>
     <%= javascript_include_tag "modernizr" %>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="<%= asset_path('favicon.ico') %>" />
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
 
   <body>
+  <!-- SUB MENU -->
+    <section id="submenu-container">
+      <a id="mobile-menu" href="#">SubMenu</a>
+      <nav id="submenu">
+        <ul>
+          <li>
+            <a href="http://contes.dev5.webenabled.net">Inicio</a>
+          </li>
+          <li>
+            <a href="index.html#presentacion">Como Funciona</a>
+          </li>
+
+          <li>
+            <a href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- LOGIN MENU -->
+      <nav id="submenu-login">
+        <ul>
+          <li>
+            <a href="#">Registrarse</a>
+          </li>
+          <li>
+            <a href="#">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <div class="clear"></div>
+    <!-- HEADER -->
+    <header id="header">
+      <div class="logo"><img src="<%= asset_path('logo.png') %>" alt="Apostar & Apostar" width="381" height="183" title="Apostar & Apostar"/><span>¡Apueste gratis y gane!</span>            </div>
+    </header>
+    <div class="clear"></div>
+    <!-- MAIN MENU -->
+     <!-- <section id="mainmenu-container">
+      <a class="toggleMenu" href="#">Menu</a>
+      <nav>
+        <ul id="mainmenu">
+          <li>
+            <a href="index.html">
+              <span>Início</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Pages</span>
+            </a>
+            <ul>
+              <li>
+                <a href="club.html">
+                  <span>Our Club</span>
+                </a>
+              </li>
+              <li>
+                <a href="team.html">
+                  <span>Our Team</span>
+                </a>
+              </li>
+              <li>
+                <a href="features.html">
+                  <span>Features</span>
+                </a>
+              </li>
+              <li>
+                <a href="layout.html">
+                  <span>Layout</span>
+                </a>
+              </li>
+              <li>
+                <a href="fixtures.html">
+                  <span>Fixtures</span>
+                </a>
+              </li>
+              <li>
+                <a href="result.html">
+                  <span>Match Result</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Dropdown</span>
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span>Item 1</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span>Item 2</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span>Item 3</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span>Item 4</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="galleries.html">
+              <span>Gallery</span>
+            </a>
+            <ul>
+              <li>
+                <a href="galleries.html">
+                  <span>Galleries</span>
+                </a>
+              </li>
+              <li>
+                <a href="single-gallery.html">
+                  <span>Single Gallery</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="blog.html">
+              <span>Blog</span>
+            </a>
+            <ul>
+              <li>
+                <a href="blog.html">
+                  <span>Blog</span>
+                </a>
+              </li>
+              <li>
+                <a href="single-post.html">
+                  <span>Single Post</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>-->
+
     <% if notice %>
       <div data-alert="" class="alert-box success">
         <div class="row">
@@ -34,6 +185,51 @@
     <% end %>
 
     <%= yield %>
+
+    <div class="clear"></div>
+    <!-- SPONSORS TITLE -->
+    <div class="logos-title">Patrocinadores</div>
+    <!-- SPONSORS SLIDER -->
+    <section class="transparent-bg">
+      <div id="logos">
+        <div class="slide">
+          <a href="#">
+            <img src="<%= asset_path( 'logo.png' ) %>" alt="" />                        </a>                    </div>
+        <div class="slide">
+          <a href="#">
+            <img src="<%= asset_path( 'logo.png' ) %>" alt="" />                        </a>                    </div>
+        <div class="slide">
+          <a href="#">
+            <img src="<%= asset_path( 'logo.png' ) %>" alt="" />                        </a>                    </div>
+        <div class="slide">
+          <a href="#">
+            <img src="<%= asset_path( 'logo.png' ) %>" alt="" />                        </a>                    </div>
+        <div class="slide">
+          <a href="#">
+            <img src="<%= asset_path( 'logo.png' ) %>" alt="" />                        </a>                    </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div id="footer-widgets">
+        <!-- WIDGET 1 -->
+        <!-- WIDGET 2 -->
+        <!-- WIDGET 3 -->
+      </div>
+      <div class="clear"></div>
+      <!-- COPYRIGHT -->
+      <div class="credits">Todos los derechos reservados &copy; 2014</div>
+    <!-- SOCIAL ICONS -->
+      <ul class="social-icons">
+        <li>
+          <a href="#">
+            <img class="social-icon" src="<%= asset_path( 'facebook.png' ) %>" alt="Facebook" />                        </a>                    </li>
+      </ul>
+    </footer>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top"></a>
+  </section>
+
 
         <!-- JS FILES -->
     <%= javascript_include_tag "jquery" %>
@@ -47,7 +243,7 @@
     <script type="text/javascript">
       jQuery(window).load(function() {
         "use strict";
-        jQuery('body').backstretch( "#{asset_path('bg-blurred.jpg')}");
+        jQuery('body').backstretch( "<%= asset_path('bg-blurred.jpg') %>");
       });
     </script>
     <!-- SPONSORS SLIDER -->

@@ -87,13 +87,13 @@ html[xmlns] .slides {
 }
 .flex-direction-nav .flex-next {
 	background-position:center center;
-	background-image:url('../images/s-right.png');
+	background-image: asset-url("s-right.png", image);
 	background-repeat:no-repeat;
 	left: 60px;
 }
 .flex-direction-nav .flex-prev {
     background-position:center center;
-	background-image:url('../images/s-left.png');
+	background-image: asset-url("s-left.png", image);
 	background-repeat:no-repeat;
 	left: 0px;
 }
