@@ -1,53 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
+    <title>Apostar y Apostar | ¡Apueste Gratis y Gane!</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=0,width=device-width,height=device-height,initial-scale=1,maximum-scale=1" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- CSS FILES -->
+    <%= stylesheet_link_tag    "normalize" %>
+    <%= stylesheet_link_tag    "animate" %>
+    <%= stylesheet_link_tag    "flexslider" %>
+    <%= stylesheet_link_tag    "style" %>
+    <%= stylesheet_link_tag    "colors" %>
+    <%= stylesheet_link_tag    "colorbox" %>
+    <%= stylesheet_link_tag    "jquery.bxslider" %>
+    <%= stylesheet_link_tag    "media" %>
+    <%= javascript_include_tag "modernizr" %>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-    <body>
-      <div class="nav-full-width">
-        <div class="row">
-          <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-              <li class="name">
-                <h1><%= link_to 'Concursos de futbol', contests_path, :class => 'navbar-link' %></h1>
-              </li>
-              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-            </ul>
 
-            <section class="top-bar-section">
-              <!-- Right Nav Section -->
-              <ul class="right">
-                <% if user_signed_in? %>
-                <li class="has-dropdown">
-                  <a href="#"><strong><%= current_user.email %></strong></a>
-                  <ul class="dropdown">
-                    <li>
-                      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-                    </li>
-                    <li>
-                      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-                    </li>
-                  </ul>
-                <% else %>
-                  <li>
-                    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-                  </li>
-                  <li>
-                    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-                  </li>
-                <% end %>
-              </ul>
-            </section>
-          </nav>
-      </div>
-    </div>
+  <body>
     <% if notice %>
       <div data-alert="" class="alert-box success">
         <div class="row">
@@ -55,9 +32,50 @@
         </div>
       </div>
     <% end %>
-    <div class="row">
-      <div class="small columns"><%= yield %></div>
-    </div>
-    <%= javascript_include_tag "application" %>
+
+    <%= yield %>
+
+        <!-- JS FILES -->
+    <%= javascript_include_tag "jquery" %>
+    <%= javascript_include_tag "backstretch" %>
+    <%= javascript_include_tag "jquery.flexslider" %>
+    <%= javascript_include_tag "jflickrfeed.min" %>
+    <%= javascript_include_tag "jquery.bxslider.min" %>
+    <%= javascript_include_tag "jquery.colorbox-min" %>
+
+    <!-- BG IMAGE -->
+    <script type="text/javascript">
+      jQuery(window).load(function() {
+        "use strict";
+        jQuery('body').backstretch( "#{asset_path('bg-blurred.jpg')}");
+      });
+    </script>
+    <!-- SPONSORS SLIDER -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('#logos').bxSlider({
+          slideWidth: 235,
+          pager: false,
+          minSlides: 2,
+          maxSlides: 5,
+          infiniteLoop: false,
+          hideControlOnEnd: true,
+          slideMargin: 10
+        });
+      });
+    </script>
+    <!-- FIXTURE SLIDER -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        "use strict";
+        jQuery('#fixture').bxSlider({
+          pager: false,
+          infiniteLoop: false,
+          hideControlOnEnd: true
+        });
+      });
+    </script>
+    <%= javascript_include_tag "custom" %>
   </body>
+
 </html>
