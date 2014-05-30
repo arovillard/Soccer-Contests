@@ -28,10 +28,8 @@
   <!-- SUB MENU -->
     <section id="submenu-container">
       <% if notice %>
-        <div data-alert="" class="alert-box success">
-          <div class="row">
-            <%= notice %>
-          </div>
+        <div class="alert-box">
+          <%= notice %>
         </div>
       <% end %>
       <a id="mobile-menu" href="#">SubMenu</a>
@@ -54,10 +52,10 @@
         <ul>
           <% if user_signed_in? %>
             <li>
-              <%= link_to 'Edit profile', edit_user_registration_path %>
+              <%= link_to 'Editar perfil', edit_user_registration_path %>
             </li>
             <li>
-              <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             </li>
             <li>
               <a href="#"><strong>Usuario: </strong><%= current_user.email %></a>

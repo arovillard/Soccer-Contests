@@ -170,6 +170,15 @@ blockquote cite {
 .list li:last-child{
     margin-bottom: 0px;
 }
+/* ================= Alerts ===================== */
+.alert-box {
+    background-color: #D8CB39;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-family:'open_sansregular';
+}
 /* ================= SUB MENU  ================== */
 #submenu-container {
     width: 100%;
