@@ -1,38 +1,34 @@
-<%= form_for @contest do |f| %>
-  <% @games.each do |game| %>
-    <%= f.fields_for :entries, Entry.new do |entry| %>
-      <% @show_submit = true %>
-      <%= entry.hidden_field :game_id, :value => game.id %>
-      <%= entry.hidden_field :user_id, :value => current_user.id %>
-      <div class="games row">
-        <div class="small-4 columns team-left">
-          <p><%= game.team_a_name %></p>
-          <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
-        </div>
-        <div class="small-4 columns centered">
-          <div class="row">
-            <div class="small-5 columns field-left">
-              <%= entry.number_field :team_a_score, :class => 'number-field' %>
-            </div>
-            <div class="small-2 columns dash">
-              <p>-</p>
-            </div>
-            <div class="small-5 columns">
-              <%= entry.number_field :team_b_score, :class => 'number-field' %>
-            </div>
+<div>
+  <div class="sidebarbox-title">
+    <h3>Fixture and Results / 2013-2014</h3>
+  </div>
+  <%= form_for @contest do |f| %>
+    <% @games.each do |game| %>
+      <%= f.fields_for :entries, Entry.new do |entry| %>
+        <% @show_submit = true %>
+        <%= entry.hidden_field :game_id, :value => game.id %>
+        <%= entry.hidden_field :user_id, :value => current_user.id %>
+          <!-- TABLE -->
+          <div class="fixture-row">
+            <a href="">
+              <div class="fixture-row-left">
+                <%= game.team_a_name %>
+                <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
+                <div><%= entry.number_field :team_a_score, :class => 'number-field' %></div>
+              </div>
+              <div class="fixture-row-right">
+                <div><%= entry.number_field :team_b_score, :class => 'number-field' %></div>
+                <%= game.team_b_name %>
+                <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
+              </div>
+            </a>
           </div>
+        <% end %>
+      <% end %>
+      <% if @show_submit %>
+        <div class="actions">
+          <%= f.submit 'Submit Results', :class => 'button expand submit-results' %>
         </div>
-        <div class="small-4 columns team-right">
-          <p><%= game.team_b_name %></p>
-          <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
-        </div>
-      </div>
-      <div class="clear-both"></div>
     <% end %>
   <% end %>
-  <% if @show_submit %>
-    <div class="actions">
-      <%= f.submit 'Submit Results', :class => 'button expand submit-results' %>
-    </div>
-  <% end %>
-<% end %>
+</div>

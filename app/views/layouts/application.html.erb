@@ -17,6 +17,7 @@
     <%= stylesheet_link_tag    "colorbox" %>
     <%= stylesheet_link_tag    "jquery.bxslider" %>
     <%= stylesheet_link_tag    "media" %>
+    <%= stylesheet_link_tag    "easy-responsive-tabs" %>
     <%= javascript_include_tag "modernizr" %>
     <link rel="shortcut icon" type="image/x-icon" href="<%= asset_path('favicon.ico') %>" />
     <!--[if lt IE 9]>
@@ -249,6 +250,7 @@
     <%= javascript_include_tag "jflickrfeed.min" %>
     <%= javascript_include_tag "jquery.bxslider.min" %>
     <%= javascript_include_tag "jquery.colorbox-min" %>
+    <%= javascript_include_tag "easyResponsiveTabs" %>
 
     <!-- BG IMAGE -->
     <script type="text/javascript">
@@ -281,6 +283,16 @@
           hideControlOnEnd: true
         });
       });
+    </script>
+    <!-- VERTICAL TABS -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
     </script>
     <%= javascript_include_tag "custom" %>
   </body>
