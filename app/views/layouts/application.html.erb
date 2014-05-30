@@ -27,14 +27,21 @@
   <body>
   <!-- SUB MENU -->
     <section id="submenu-container">
+      <% if notice %>
+        <div data-alert="" class="alert-box success">
+          <div class="row">
+            <%= notice %>
+          </div>
+        </div>
+      <% end %>
       <a id="mobile-menu" href="#">SubMenu</a>
       <nav id="submenu">
         <ul>
           <li>
-            <a href="http://contes.dev5.webenabled.net">Inicio</a>
+            <%= link_to 'Inicio', contests_path %>
           </li>
           <li>
-            <a href="index.html#presentacion">Como Funciona</a>
+            <%= link_to 'Como Funciona', contests_path + "#presentacion" %>
           </li>
 
           <li>
@@ -45,12 +52,24 @@
       <!-- LOGIN MENU -->
       <nav id="submenu-login">
         <ul>
-          <li>
-            <a href="#">Registrarse</a>
-          </li>
-          <li>
-            <a href="#">Login</a>
-          </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Edit profile', edit_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %>
+            </li>
+            <li>
+              <a href="#"><strong>Usuario: </strong><%= current_user.email %></a>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+          <% end %>
         </ul>
       </nav>
     </section>
@@ -175,14 +194,6 @@
           </li>
         </ul>
       </nav>-->
-
-    <% if notice %>
-      <div data-alert="" class="alert-box success">
-        <div class="row">
-          <%= notice %>
-        </div>
-      </div>
-    <% end %>
     <!-- MAIN CONTAINER -->
     <section class="maincontainer">
 
