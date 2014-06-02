@@ -1,38 +1,23 @@
+<div class="using-grid grid">
+<div class="unit three-quarters">
+  <div class="sidebarbox-title">
+    <h3>Edit your result</h3>
+  </div>
   <%= form_for [@contest, @entry] do |f| %>
-    <% if @entry.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-        <ul>
-        <% @entry.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+    <!-- TABLE -->
+    <div class="fixture-row">
+      <div class="fixture-row-left">
+        <%= @entry.team_a_name %>
+        <div><%= f.number_field :team_a_score, :class => 'input-field-custom' %></div>
       </div>
-    <% end %>
-    <div class="games row">
-      <div class="small-4 columns team-left">
-        <p><%= @entry.team_a_name %></p>
-      </div>
-      <div class="small-4 columns centered">
-        <div class="row">
-          <div class="small-5 columns field-left">
-            <%= f.number_field :team_a_score, :class => 'number-field' %>
-          </div>
-          <div class="small-2 columns dash">
-            <p>-</p>
-          </div>
-          <div class="small-5 columns">
-            <%= f.number_field :team_b_score, :class => 'number-field' %>
-          </div>
-        </div>
-      </div>
-      <div class="small-4 columns team-right">
-        <p><%= @entry.team_b_name %></p>
+      <div class="fixture-row-right">
+        <div><%= f.number_field :team_b_score, :class => 'input-field-custom' %></div>
+        <%= @entry.team_b_name %>
       </div>
     </div>
-    <div class="clear-both"></div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Submit Results', :class => 'button expand submit-results' %>
     </div>
   <% end %>
+</div>
+</div>

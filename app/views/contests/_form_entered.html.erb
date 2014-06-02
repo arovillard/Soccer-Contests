@@ -1,0 +1,24 @@
+<div class="using-grid grid">
+  <div class="unit three-quarters">
+    <div class="sidebarbox-title">
+      <h3>Tus Apuestas Para el Concurso "<%= @contest.name %>"</h3>
+    </div>
+    <% @entries.each do |entry| %>
+      <% result = @results.find{|result| result.id == entry.game_id} %>
+      <!-- TABLE -->
+      <div class="fixture-row">
+        <%= link_to (edit_contest_entry_path(@contest, entry)) do %>
+          <div class="fixture-row-left">
+            <%= entry.team_a_name %>
+            <div><%= entry.team_a_score %></div>
+          </div>
+          <div class="fixture-row-right">
+            <div><%= entry.team_b_score %></div>
+            <%= entry.team_b_name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

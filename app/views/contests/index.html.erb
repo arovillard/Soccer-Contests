@@ -6,18 +6,21 @@
           <div class="flex-title">
             <h3>¡Participe y gane!</h3>
             <p>En el mundial 2014 que se celebra en Brasil puede ganar de forma gratuita un montón de regalos solo precisa acertar los resultados de los partidos.</p>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
           </div>
           <img src="<%= asset_path('large3.jpg') %>" alt="" />                        </li>
         <li>
           <div class="flex-title">
             <h3>¡Gane la camiseta de Messi!</h3>
             <p>Es tan facil como apostar gratis y acertar los resultados. Regístrese gratuitamente en nuestro website y realize las apuestas.</p>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
           </div>
           <img src="<%= asset_path('large2.jpg') %>" alt="" />                        </li>
         <li>
           <div class="flex-title">
             <h3>¡Gane la camiseta de Ronaldo!</h3>
             <p>Puede ganar gratis la camiseta firmada por Cristiano Ronaldo. Es solo acertar los resultados de los partidos del mundial de Brasil de 2014.                      </p>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
           </div>
           <img src="<%= asset_path('large1.jpg') %>" alt="" />                        </li>
       </ul>
@@ -25,37 +28,29 @@
   </section>
   <div class="clear"></div>
   <!-- FIXTURE TITLE -->
-  <div class="scores-title">Próximos partidos & Últimos resultados</div>
+  <% unless @next_games.empty? %>
+    <div class="scores-title">Próximos partidos</div>
+
   <!-- FIXTURE SLIDER -->
-  <section class="transparent-bg">
-    <div id="fixture">
-      <div class="slide-content">
-        <div class="match-results">
-          <span>Uruguay</span>
-          <span class="score">4 - 0</span>
-          <span>Argentina</span>                        </div>
-        <div class="match-place">
-          <span>11 de Marzo 2014 - 10:00 PM Estadio Maracaná</span>                        </div>
+    <section class="transparent-bg">
+      <div id="fixture">
+        <% @next_games.each do |game| %>
+          <div class="slide-content">
+            <div class="match-results">
+              <span><%= game.team_a_name %></span>
+              <span class="score">? - ?</span>
+              <span><%= game.team_b_name %></span>
+            </div>
+            <div class="match-place">
+              <span><%= game.game_date.strftime("%B %d, %Y @ %H:%M hs") %></span>
+              <span class="red"><%= link_to("Apueste ya!", contest_path(game.contest)) %></span>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <div class="slide-content">
-        <div class="match-results">
-          <span>Deserunt Quorum FC</span>
-          <span class="score">2 - 1</span>
-          <span>Voluptate Cillum FC</span>                        </div>
-        <div class="match-place">
-          <span>07th Mar 2014 - 11:00 PM at Suspendisse Stadium</span>                        </div>
-      </div>
-      <div class="slide-content">
-        <div class="match-results">
-          <span>Voluptate Cillum FC</span>
-          <span class="score">1 - 3</span>
-          <span>Deserunt Quorum FC</span>                        </div>
-        <div class="match-place">
-          <span>03th Mar 2014 - 09:00 PM at Quamquam Stadium</span>                        </div>
-      </div>
-    </div>
-    <div class="clear"></div>
-  </section>
+      <div class="clear"></div>
+    </section>
+  <% end %>
   <!-- PAGE CONTAINER -->
   <section class="pagecontainer">
     <!-- LEFT CONTAINER -->
@@ -78,78 +73,29 @@
       <!-- SIDEBAR BOX -->
 
       <!-- SIDEBAR BOX -->
-      <div class="sidebarbox">                    </div>
+      <!-- <div class="sidebarbox">
+      </div> -->
+
       <!-- SIDEBAR BOX -->
-      <div class="sidebarbox">
-        <div class="sidebarbox-title">
-          <h3>Últimos resultados</h3>
+      <% unless @latest_scores.empty? %>
+        <div class="sidebarbox">
+          <div class="sidebarbox-title">
+            <h3>Últimos resultados</h3>
+          </div>
+          <!-- TABLE -->
+          <div class="fixture-row">
+            <% @latest_scores.each do |game| %>
+              <%= link_to(contest_games_path(game.contest, game)) do %>
+                <div class="fixture-row-left"><%= game.team_a_name %>
+                  <div><%= game.team_a_result %></div>
+                </div>
+                <div class="fixture-row-right">
+                  <div><%= game.team_b_result %></div><%= game.team_b_name %></div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-        <!-- TABLE -->
-        <div class="fixture-row">
-          <a href="#">
-            <div class="fixture-row-left">Consectetur FC
-              <div>?</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>?</div>Voluptate Cillum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Fabulas FC
-              <div>1</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>3</div>Voluptate Cillum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Voluptate Cillum FC
-              <div>4</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>1</div>Vidisse FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Elit FC
-              <div>2</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>4</div>Voluptate Cillum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Voluptate Cillum FC
-              <div>1</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>1</div>Domesticarum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Ullamco FC
-              <div>6</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>1</div>Voluptate Cillum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Incididunt FC
-              <div>1</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>5</div>Voluptate Cillum FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Voluptate Cillum FC
-              <div>2</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>1</div>Pariatur FC</div>
-          </a>
-          <a href="#">
-            <div class="fixture-row-left">Voluptate Cillum FC
-              <div>1</div>
-            </div>
-            <div class="fixture-row-right">
-              <div>3</div>Mentitum FC</div>
-          </a>                        </div>
-      </div>
+      <% end %>
       <!-- SIDEBAR BOX -->
       <div class="sidebarbox">
         <div class="sidebarbox-title">

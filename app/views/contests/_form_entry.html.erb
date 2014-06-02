@@ -1,6 +1,7 @@
-<div>
+<div class="using-grid grid">
+<div class="unit three-quarters">
   <div class="sidebarbox-title">
-    <h3>Fixture and Results / 2013-2014</h3>
+    <h3>Proximos Partidos</h3>
   </div>
   <%= form_for @contest do |f| %>
     <% @games.each do |game| %>
@@ -10,18 +11,16 @@
         <%= entry.hidden_field :user_id, :value => current_user.id %>
           <!-- TABLE -->
           <div class="fixture-row">
-            <a href="">
-              <div class="fixture-row-left">
-                <%= game.team_a_name %>
-                <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
-                <div><%= entry.number_field :team_a_score, :class => 'number-field' %></div>
-              </div>
-              <div class="fixture-row-right">
-                <div><%= entry.number_field :team_b_score, :class => 'number-field' %></div>
-                <%= game.team_b_name %>
-                <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
-              </div>
-            </a>
+            <div class="fixture-row-left">
+              <%= game.team_a_name %>
+              <%= entry.hidden_field :team_a_name, :value => game.team_a_name %>
+              <div><%= entry.number_field :team_a_score, :class => 'input-field-custom' %></div>
+            </div>
+            <div class="fixture-row-right">
+              <div><%= entry.number_field :team_b_score, :class => 'input-field-custom' %></div>
+              <%= game.team_b_name %>
+              <%= entry.hidden_field :team_b_name, :value => game.team_b_name %>
+            </div>
           </div>
         <% end %>
       <% end %>
@@ -31,4 +30,5 @@
         </div>
     <% end %>
   <% end %>
+</div>
 </div>
