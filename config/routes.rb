@@ -3,6 +3,8 @@ Wcc::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'contests#index'
+  get '/user' => 'pages#user', :as => 'user'
+  get '/contact' => 'pages#contact', :as => 'contact'
   resources :contests do
     resources :entries
     resources :games do
