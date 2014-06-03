@@ -7,7 +7,7 @@ class ContestsController < ApplicationController
   def index
     @contests = Contest.all.where(:active => true)
     @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 5.hour).limit(5)
-    @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :asc).limit(10)
+    @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :asc).limit(5)
   end
 
   # GET /contests/1
@@ -71,7 +71,7 @@ class ContestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contest
       @contest = Contest.find(params[:id])
-      @entries = @contest.entries.where(:user_id => current_user)
+      @entries = @contest.entries.where(:user_id => current_user).joins(:game).merge(Game.where("game_date < ?", Time.zone.now - 5.days))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

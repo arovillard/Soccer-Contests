@@ -1,39 +1,43 @@
-<p id="notice"><%= notice %></p>
+<section class="maincontainer">
+  <!-- PAGE TITLE -->
+  <div class="page-title">Ultimos Resultados</div>
+<section class="pagecontainer">
+  <p>
+    <strong>Contest:</strong>
+    <%= @game.contest_id %>
+  </p>
 
-<p>
-  <strong>Contest:</strong>
-  <%= @game.contest_id %>
-</p>
+  <p>
+    <strong>Team a name:</strong>
+    <%= @game.team_a_name %>
+  </p>
 
-<p>
-  <strong>Team a name:</strong>
-  <%= @game.team_a_name %>
-</p>
+  <p>
+    <strong>Team b name:</strong>
+    <%= @game.team_b_name %>
+  </p>
 
-<p>
-  <strong>Team b name:</strong>
-  <%= @game.team_b_name %>
-</p>
+  <p>
+    <strong>Team a result:</strong>
+    <%= @game.team_a_result %>
+  </p>
 
-<p>
-  <strong>Team a result:</strong>
-  <%= @game.team_a_result %>
-</p>
+  <p>
+    <strong>Team b result:</strong>
+    <%= @game.team_b_result %>
+  </p>
 
-<p>
-  <strong>Team b result:</strong>
-  <%= @game.team_b_result %>
-</p>
+  <p>
+    <strong>Game date:</strong>
+    <%= @game.game_date %>
+  </p>
 
-<p>
-  <strong>Game date:</strong>
-  <%= @game.game_date %>
-</p>
+  <p>
+    <strong>Group:</strong>
+    <%= @game.group %>
+  </p>
 
-<p>
-  <strong>Group:</strong>
-  <%= @game.group %>
-</p>
-
-<%= link_to 'Edit', edit_contest_game_path(@contest,@game) %> |
-<%= link_to 'Back', contest_games_path %>
+  <%= link_to 'Edit', edit_contest_game_path(@contest,@game) %> |
+  <%= link_to 'Back', contest_games_path %>
+</section>
+</section>

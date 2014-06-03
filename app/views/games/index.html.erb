@@ -1,39 +1,41 @@
-<h1>Listing games</h1>
+<section class="maincontainer">
+  <!-- PAGE TITLE -->
+  <div class="page-title"><%= @contest.name.upcase %> - Resultados</div>
+   <div class="grid plain-bg">
+    <div class="unit half">
+      <table class="box-table">
+        <thead>
+          <tr>
+            <th class="text-center">Grupo</th>
+            <th colspan="5" class="text-center">Partido</th>
+            <th class="text-center">Fecha</th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Contest</th>
-      <th>Team a name</th>
-      <th>Team b name</th>
-      <th>Team a result</th>
-      <th>Team b result</th>
-      <th>Game date</th>
-      <th>Group</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.contest_id %></td>
-        <td><%= game.team_a_name %></td>
-        <td><%= game.team_b_name %></td>
-        <td><%= game.team_a_result %></td>
-        <td><%= game.team_b_result %></td>
-        <td><%= game.game_date %></td>
-        <td><%= game.group %></td>
-        <td><%= link_to 'Show', contest_game_path(@contest, game) %></td>
-        <td><%= link_to 'Edit', edit_contest_game_path(@contest, game) %></td>
-        <td><%= link_to 'Destroy', contest_game_path(@contest, game), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Game', new_contest_game_path %>
+        <tbody>
+          <% unless @games.empty? %>
+            <% @games.each do |game| %>
+              <tr>
+                <td class="text-center"><%= game.group.upcase %></td>
+                <td class="text-center"><%= game.team_a_name %></td>
+                <td class="text-right"><%= game.team_a_result.nil? ? "?" : game.team_a_result %></td>
+                <td>-</td>
+                <td><%= game.team_b_result.nil? ? "?" : game.team_b_result %></td>
+                <td class="text-center"><%= game.team_b_name %></td>
+                <td class="text-center"><%= game.game_date.strftime("%B %d, %Y @ %H:%M hs") %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="7" class="text-center">
+                No Hay Ningun Resultado Disponible
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="unit half">
+    </div>
+  </div>
+</section>
