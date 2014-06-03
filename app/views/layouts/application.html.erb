@@ -54,10 +54,13 @@
         <ul>
           <% if user_signed_in? %>
             <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
               <%= link_to 'Editar perfil', edit_user_registration_path %>
             </li>
             <li>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= link_to 'Mis Apuestas', user_path %>
             </li>
             <li>
               <a href="#"><strong>Usuario: </strong><%= current_user.email %></a>
