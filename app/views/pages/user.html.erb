@@ -9,6 +9,8 @@
             <th class="text-center">Grupo</th>
             <th colspan="5" class="text-center">Partido</th>
             <th class="text-center">Fecha</th>
+            <th class="text-center">Resultado</th>
+            <th class="text-center">Nro Para Sorteo</th>
           </tr>
         </thead>
 
@@ -23,11 +25,23 @@
                 <td><%= entry.team_b_score.nil? ? "?" : entry.team_b_score %></td>
                 <td class="text-center"><%= entry.team_b_name %></td>
                 <td class="text-center"><%= entry.game.game_date.strftime("%B %d, %Y @ %H:%M hs") %></td>
+                <% if @winners_id.include?(entry.id) %>
+                  <td class="correct text-center">Correcto!</td>
+                  <td class="text-center"><%= @winners.where(:entry_id => entry.id).pluck(:raffle_number).first %></td>
+                <% else %>
+                  <% if entry.game.team_a_result.nil? || entry.game.team_b_result.nil? %>
+                    <td class="text-center"> - </td>
+                    <td class="text-center"> - </td>
+                  <% else %>
+                    <td class="incorrect text-center"> Incorrecto </td>
+                    <td class="text-center"> - </td>
+                  <% end %>
+                <% end %>
               </tr>
             <% end %>
           <% else %>
             <tr>
-              <td colspan="7" class="text-center">
+              <td colspan="9" class="text-center">
                 No Hay Ingresado Ninguna Apuesta
               </td>
             </tr>
