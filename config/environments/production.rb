@@ -6,7 +6,7 @@ Wcc::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'baci.lindsaar.net',
+    :domain               => 'gmail.com',
     :user_name            => 'arovillard@gmail.com',
     :password             => 'Pavillon2236',
     :authentication       => 'plain',
