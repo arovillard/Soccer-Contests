@@ -5,10 +5,11 @@ require File.expand_path('../application', __FILE__)
 Wcc::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-:address => 'mydomain.com',
-:port => 587,
-:user_name => "myusername",
-:password => "password",
+:address              => "smtp.gmail.com",
+:port                 => 587,
+:domain               => 'gmail.com',
+:user_name            => 'arovillard@gmail.com',
+:password             => 'Pavillon2236',
 :authentication => :plain,
 :enable_starttls_auto => true,
 :openssl_verify_mode => 'none'
