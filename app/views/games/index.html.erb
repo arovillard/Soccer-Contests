@@ -41,7 +41,7 @@
       <% unless @comments.empty? %>
         <% @comments.each do |comment| %>
           <div>
-            <strong><%= comment.user_name %></strong>
+            <strong><%= comment.user_name %></strong> <%= time_ago_in_words(comment.created_at) %>
             <br />
             <p><%= comment.body %></p>
           </div>

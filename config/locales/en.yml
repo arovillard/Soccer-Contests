@@ -19,5 +19,47 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+"en":
+  datetime:
+    distance_in_words:
+      half_a_minute: "Hace medio minuto"
+      less_than_x_seconds:
+        one:   "Hace menos de 1 segundo"
+        other: "Hace menos de %{count} segundos"
+      x_seconds:
+        one:   "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "Hace menos de 1 minuto"
+        other: "Hace menos de %{count} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "Hace 1 hora"
+        other: "Hace %{count} horas"
+      x_days:
+        one:   "1 dia"
+        other: "%{count} days"
+      about_x_months:
+        one:   "Hace 1 mese"
+        other: "Hace %{count} meses"
+      x_months:
+        one:   "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "Hace 1 año"
+        other: "Hace %{count} años"
+      over_x_years:
+        one:   "Mas de 1 año"
+        other: "Mas de %{count} años"
+      almost_x_years:
+        one:   "Casi 1 año"
+        other: "Casi %{count} año"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundo"
