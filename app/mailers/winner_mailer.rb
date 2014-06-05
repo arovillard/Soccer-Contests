@@ -11,6 +11,6 @@ class WinnerMailer < ActionMailer::Base
     @user = user
     @game = game
     @raffle_number = raffle_number
-    mail(from: "from@example.com", to: "hello@hello.com", subject: "hello world")
+    mail(from: "apostaryapostar@gmail.com", to: user.email, subject: "Felicitaciones! Usted Acerto!")
   end
 end
