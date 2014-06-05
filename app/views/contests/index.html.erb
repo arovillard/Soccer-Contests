@@ -65,9 +65,32 @@
         </figure>
       </article>
       <hr/>
-
-      </div>
-    </section>
+      <div class="sidebarbox">
+        <div class="sidebarbox-title">
+          <h3>Galería de fotos</h3>
+        </div>
+        <!-- GALLERY -->
+        <ul class="team-gallery">
+          <li>
+            <a class="clb-photo" href="<%= asset_path('l1.jpg') %>">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+          <li>
+            <a class="clb-iframe" href="http://www.youtube.com/embed/1iIZeIy7TqM">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+          <li>
+            <a class="clb-photo" href="images/photos/l1.jpg">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+          <li>
+            <a class="clb-iframe" href="http://www.dailymotion.com/embed/video/x143vp2">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+          <li>
+            <a class="clb-photo" href="images/photos/l1.jpg">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+          <li>
+            <a class="clb-link" href="http://www.themeforest.com">
+              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
+        </ul>
+                  </div>    </section>
     <!-- RIGHT CONTAINER -->
     <section class="rightcontainer">
       <!-- SIDEBAR BOX -->
@@ -96,32 +119,20 @@
           </div>
         </div>
       <% end %>
-      <!-- SIDEBAR BOX -->
       <div class="sidebarbox">
-        <div class="sidebarbox-title">
-          <h3>Galería de fotos</h3>
-        </div>
-        <!-- GALLERY -->
-        <ul class="team-gallery">
-          <li>
-            <a class="clb-photo" href="<%= asset_path('l1.jpg') %>">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-iframe" href="http://www.youtube.com/embed/1iIZeIy7TqM">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-photo" href="images/photos/l1.jpg">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-iframe" href="http://www.dailymotion.com/embed/video/x143vp2">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-photo" href="images/photos/l1.jpg">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-link" href="http://www.themeforest.com">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-        </ul>
-                  </div>
+      <% unless @comments.empty? %>
+        <h3>Ultimos Comentarios</h3>
+        <% @comments.reverse.each do |comment| %>
+          <%= link_to(contest_games_path(comment.contest)) do %>
+          <div>
+            <strong><%= comment.user_name %></strong>
+            <br />
+            <p><%= comment.body %></p>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+      <!-- SIDEBAR BOX -->
     </section>
 

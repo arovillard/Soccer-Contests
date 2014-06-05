@@ -8,11 +8,14 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = @contest.games
+    @comments = @contest.comments.all.reverse
+    @comment = @contest.comments.new
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
+
   end
 
   # GET /games/new

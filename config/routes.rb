@@ -1,4 +1,5 @@
 Wcc::Application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -6,6 +7,7 @@ Wcc::Application.routes.draw do
   get '/user' => 'pages#user', :as => 'user'
   get '/contact' => 'pages#contact', :as => 'contact'
   resources :contests do
+    resources :comments
     resources :entries
     resources :games do
       resources :winners
