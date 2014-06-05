@@ -71,7 +71,7 @@ class ContestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contest
       @contest = Contest.find(params[:id])
-      @entries = @contest.entries.where(:user_id => current_user).joins(:game).merge(Game.where("game_date < ?", Time.zone.now - 5.days))
+      @entries = @contest.entries.where(:user_id => current_user).where("created_at > ?", Time.zone.now - 5.days)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
