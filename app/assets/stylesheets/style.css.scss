@@ -686,14 +686,23 @@ blockquote cite {
     margin-bottom:0px !important;
     padding-right:35px;
 }
+.comments p.comment-home {
+    margin-bottom:0px !important;
+    padding-right:60px;
+}
 .comments .meta {
-    margin-bottom:10px !important;
+    margin-bottom:5px !important;
     text-transform:uppercase;
 }
+.comments .meta span.date {
+    margin-bottom:10px !important;
+    text-transform:lowercase;
+}
 .comments_content {
-    margin-bottom:30px;
+    margin-bottom:25px;
     padding-right:15px;
     padding-top:10px;
+    padding-left: 10px;
     position:relative;
 }
 .reply {

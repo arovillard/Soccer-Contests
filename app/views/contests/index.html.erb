@@ -6,7 +6,7 @@
           <div class="flex-title">
             <h3>¡Participe y gane!</h3>
             <p>En el mundial 2014 que se celebra en Brasil puede ganar de forma gratuita un montón de regalos solo precisa acertar los resultados de los partidos.</p>
-            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
           </div>
           <img src="<%= asset_path('large3.jpg') %>" alt="" />                        </li>
         <li>
@@ -120,18 +120,22 @@
         </div>
       <% end %>
       <div class="sidebarbox">
-      <% unless @comments.empty? %>
-        <h3>Ultimos Comentarios</h3>
-        <% @comments.reverse.each do |comment| %>
-          <%= link_to(contest_games_path(comment.contest)) do %>
-          <div>
-            <strong><%= comment.user.name + "." + comment.user.last_name[0] %> dijo:</strong>
-            <br />
-            <p><%= comment.body %></p>
-          </div>
+        <% unless @comments.empty? %>
+          <h3>Ultimos Comentarios</h3>
+          <% @comments.reverse.each do |comment| %>
+            <div class="comments">
+              <p class="meta">
+                <a href="#"><%= comment.user.name + "." + comment.user.last_name[0] %></a> <span class="date">hace: <%= time_ago_in_words(comment.created_at) %></span>
+              </p>
+              <div class="comments_content">
+                <p class="comment-home"><%= comment.body %></p>
+                <%= link_to "Comentar",(contest_games_path(comment.contest)), :class => "reply" %>
+                <div class="clr"></div>
+                <div class="reply_icon"></div>
+              </div>
+            </div>
           <% end %>
         <% end %>
-      <% end %>
       </div>
       <!-- SIDEBAR BOX -->
     </section>
