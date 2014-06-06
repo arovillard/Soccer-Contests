@@ -21,7 +21,7 @@ class CommentsController < InheritedResources::Base
   private
   # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:user_name, :contest_id, :body )
+      params.require(:comment).permit(:user_name, :user_id, :contest_id, :body )
     end
 
 

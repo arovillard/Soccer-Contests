@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_many :contests, through: :entries
   has_many :games, through: :entries
   has_many :entries
+  has_many :comments
 end
