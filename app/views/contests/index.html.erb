@@ -13,14 +13,14 @@
           <div class="flex-title">
             <h3>¡Gane la camiseta de Messi!</h3>
             <p>Es tan facil como apostar gratis y acertar los resultados. Regístrese gratuitamente en nuestro website y realize las apuestas.</p>
-            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
           </div>
           <img src="<%= asset_path('large2.jpg') %>" alt="" />                        </li>
         <li>
           <div class="flex-title">
             <h3>¡Gane la camiseta de Ronaldo!</h3>
             <p>Puede ganar gratis la camiseta firmada por Cristiano Ronaldo. Es solo acertar los resultados de los partidos del mundial de Brasil de 2014.                      </p>
-            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(:id => "12")) %></span>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
           </div>
           <img src="<%= asset_path('large1.jpg') %>" alt="" />                        </li>
       </ul>
