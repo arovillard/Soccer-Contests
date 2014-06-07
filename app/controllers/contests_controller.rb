@@ -9,6 +9,7 @@ class ContestsController < ApplicationController
     @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 5.hour).limit(5)
     @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :asc).limit(5)
     @comments = Comment.order('created_at DESC').limit(5).reverse
+    @media = Medialink.order('created_at DESC').limit(8)
   end
 
   # GET /contests/1

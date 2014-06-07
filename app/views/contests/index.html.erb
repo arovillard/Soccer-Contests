@@ -66,31 +66,31 @@
       </article>
       <hr/>
       <div class="sidebarbox">
+      <% unless @media.empty? %>
         <div class="sidebarbox-title">
-          <h3>Galería de fotos</h3>
+          <h3>Ultimos Videos</h3>
         </div>
         <!-- GALLERY -->
-        <ul class="team-gallery">
-          <li>
-            <a class="clb-photo" href="<%= asset_path('l1.jpg') %>">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-iframe" href="http://www.youtube.com/embed/1iIZeIy7TqM">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-photo" href="images/photos/l1.jpg">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-iframe" href="http://www.dailymotion.com/embed/video/x143vp2">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-photo" href="images/photos/l1.jpg">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-          <li>
-            <a class="clb-link" href="http://www.themeforest.com">
-              <img src="<%= asset_path( 'logo.jpg' ) %>" alt="" />                                </a>                            </li>
-        </ul>
-                  </div>    </section>
+          <ul class="team-gallery">
+            <% @media.each do |link| %>
+              <% if link.photo %>
+                <li>
+                  <a class="clb-photo" href="<%= link.url.html_safe%>">
+                    <img src= "<%= link.url.html_safe%>" alt="" />
+                  </a>
+                </li>
+              <% elsif link.video %>
+                <li>
+                  <a class="clb-iframe" href="https://www.youtube.com/v/<%= link.url.html_safe %>">
+                    <img src="http://img.youtube.com/vi/<%= link.url.html_safe%>/0.jpg" alt="" />
+                  </a>
+                <li>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </section>
     <!-- RIGHT CONTAINER -->
     <section class="rightcontainer">
       <!-- SIDEBAR BOX -->
