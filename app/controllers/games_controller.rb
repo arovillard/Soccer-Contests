@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
   before_filter :load_contest
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   after_filter :check_winner, only: [:update, :create]
+  before_action :authenticate_user!
 
   # GET /games
   # GET /games.json

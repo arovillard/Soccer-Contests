@@ -11,18 +11,12 @@
           <img src="<%= asset_path('large3.jpg') %>" alt="" />                        </li>
         <li>
           <div class="flex-title">
-            <h3>¡Gane la camiseta de Messi!</h3>
-            <p>Es tan facil como apostar gratis y acertar los resultados. Regístrese gratuitamente en nuestro website y realize las apuestas.</p>
-            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
-          </div>
-          <img src="<%= asset_path('large2.jpg') %>" alt="" />                        </li>
-        <li>
-          <div class="flex-title">
-            <h3>¡Gane la camiseta de Ronaldo!</h3>
+            <h3>¡Gane la camiseta de Messi o Ronaldo!</h3>
             <p>Puede ganar gratis la camiseta firmada por Cristiano Ronaldo. Es solo acertar los resultados de los partidos del mundial de Brasil de 2014.                      </p>
             <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
           </div>
-          <img src="<%= asset_path('large1.jpg') %>" alt="" />                        </li>
+          <img src="<%= asset_path('messironaldo.jpg') %>" alt="" />
+        </li>
       </ul>
     </div>
   </section>
@@ -61,8 +55,11 @@
       <!-- POST -->
       <article class="post">
         <figure>
-          <iframe width="560" height="315" src="//www.youtube.com/embed/cLingdqqUr8" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="350" src="//www.youtube.com/embed/cLingdqqUr8" frameborder="0" allowfullscreen></iframe>
         </figure>
+        <%= link_to(new_user_registration_path, :class => "call-to-action") do %>
+          <div class="call-to-action">Registrese Ya!</div>
+        <% end %>
       </article>
       <hr/>
       <div class="sidebarbox">
@@ -108,7 +105,7 @@
           <!-- TABLE -->
           <div class="fixture-row">
             <% @latest_scores.each do |game| %>
-              <%= link_to(contest_games_path(game.contest, game)) do %>
+              <%= link_to(contest_games_path(game.contest)) do %>
                 <div class="fixture-row-left"><%= game.team_a_name %>
                   <div><%= game.team_a_result %></div>
                 </div>

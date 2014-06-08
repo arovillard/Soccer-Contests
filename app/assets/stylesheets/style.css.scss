@@ -1312,10 +1312,18 @@ textarea {
 }
 
 .plain-bg {
-    background-color: white;
+    background-color: #fff;
 }
 
 .link {
     padding: 10px 0;
     display: block;
+}
+
+.call-to-action {
+    background-color: #cc0000;
+    color: #fff;
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 20px;
 }
