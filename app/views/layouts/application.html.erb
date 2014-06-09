@@ -24,6 +24,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <meta http-equiv="refresh" content="900" />
   </head>
 
   <body>
@@ -54,7 +55,7 @@
         <ul>
           <% if user_signed_in? %>
             <li>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= link_to "Salir", destroy_user_session_path, method: :delete %>
             </li>
             <li>
               <%= link_to 'Editar perfil', edit_user_registration_path %>
@@ -67,10 +68,10 @@
             </li>
           <% else %>
             <li>
-              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to "Registrarse", new_user_registration_path %>
             </li>
             <li>
-              <%= link_to "Login", new_user_session_path %>
+              <%= link_to "Entrar", new_user_session_path %>
             </li>
           <% end %>
         </ul>

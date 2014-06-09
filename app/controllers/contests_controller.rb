@@ -6,17 +6,17 @@ class ContestsController < ApplicationController
   # GET /contests.json
   def index
     @contests = Contest.all.where(:active => true)
-    @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 5.hour).limit(5)
-    @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :asc).limit(5)
+    @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 5.hour).order(game_date: :asc)
+    @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :desc).limit(8)
     @comments = Comment.order('created_at DESC').limit(5).reverse
-    @media = Medialink.order('created_at DESC').limit(8)
+    @media = Medialink.order('created_at DESC').limit(9)
   end
 
   # GET /contests/1
   # GET /contests/1.json
   def show
     items = current_user.entries.where(:contest_id => @contest.id).pluck(:game_id)
-    @games = @contest.games.where.not(:id => items).where({:active => true, :team_a_result => nil, :team_b_result => nil})
+    @games = @contest.games.where.not(:id => items).where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 1.hour)
     @results = @contest.games.where(:id => items)
   end
 

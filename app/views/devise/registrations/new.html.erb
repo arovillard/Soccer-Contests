@@ -1,6 +1,6 @@
 <section class="maincontainer">
   <section class="pagecontainer">
-    <h2>Sign up</h2>
+    <h2>Registrarse</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -8,22 +8,22 @@
       <div><%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %></div>
 
-      <div><%= f.label :name %><br />
+      <div>Nombre<br />
       <%= f.text_field :name, autocomplete: true, required: true %></div>
 
-      <div><%= f.label :last_name %><br />
+      <div>Apellido<br />
       <%= f.text_field :last_name, autocomplete: true, required: true %></div>
 
-      <div><%= f.label :phone %><br />
+      <div>Telefono<br />
       <%= f.text_field :phone, autocomplete: true, required: true %></div>
 
-      <div><%= f.label :password %><br />
+      <div>Contraseña<br />
         <%= f.password_field :password, autocomplete: "off" %></div>
 
-      <div><%= f.label :password_confirmation %><br />
+      <div>Confirmar contraseña<br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-      <div><%= f.submit "Sign up", :class => "button" %></div>
+      <div><%= f.submit "Registrarse", :class => "button" %></div>
     <% end %>
 
     <%= render "devise/shared/links" %>

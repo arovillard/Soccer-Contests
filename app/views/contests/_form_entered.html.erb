@@ -7,7 +7,7 @@
       <% result = @results.find{|result| result.id == entry.game_id} %>
       <!-- TABLE -->
       <div class="fixture-row">
-        <%= link_to (edit_contest_entry_path(@contest, entry)) do %>
+        <%= link_to user_path do %>
           <div class="fixture-row-left">
             <%= entry.team_a_name %>
             <div><%= entry.team_a_score %></div>

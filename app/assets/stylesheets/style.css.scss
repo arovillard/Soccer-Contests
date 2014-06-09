@@ -1327,3 +1327,17 @@ textarea {
     text-align: center;
     font-size: 20px;
 }
+
+.flex-title span.bold{
+    font-size: 17px;
+}
+
+.correcto {
+    color: #3B972F;
+    font-weight: bold;
+}
+
+.incorrecto {
+    color: #cc0000;
+    font-weight: bold;
+}

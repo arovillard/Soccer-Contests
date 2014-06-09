@@ -4,18 +4,19 @@
       <ul class="slides">
         <li>
           <div class="flex-title">
-            <h3>¡Participe y gane!</h3>
-            <p>En el mundial 2014 que se celebra en Brasil puede ganar de forma gratuita un montón de regalos solo precisa acertar los resultados de los partidos.</p>
-            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
-          </div>
-          <img src="<%= asset_path('large3.jpg') %>" alt="" />                        </li>
-        <li>
-          <div class="flex-title">
-            <h3>¡Gane la camiseta de Messi o Ronaldo!</h3>
-            <p>Puede ganar gratis la camiseta firmada por Cristiano Ronaldo. Es solo acertar los resultados de los partidos del mundial de Brasil de 2014.                      </p>
+            <h3>¡Gane la camiseta de su sueño!</h3>
+            <p>Puede ganar gratis la camiseta firmada por Messi o Cristiano Ronaldo. Cuantos mas resultados aciertas, mas chances tienes de ganar!</p>
             <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
           </div>
           <img src="<%= asset_path('messironaldo.jpg') %>" alt="" />
+        </li>
+        <li>
+          <div class="flex-title">
+            <h3>¡Participe gratis y gane!</h3>
+            <p>Todos los partidos del mundial seran agregados, <span class="bold">entra todos los dias!!! </span> y por cada acierto tendras una chance mas de ganar</p>
+            <span class="call-2-action"><%= link_to("Apueste ya!", contest_path(@contests.last)) %></span>
+          </div>
+          <img src="<%= asset_path('large3.jpg') %>" alt="" />
         </li>
       </ul>
     </div>
@@ -23,7 +24,7 @@
   <div class="clear"></div>
   <!-- FIXTURE TITLE -->
   <% unless @next_games.empty? %>
-    <div class="scores-title">Próximos partidos</div>
+    <div class="scores-title">Proximos partidos</div>
 
   <!-- FIXTURE SLIDER -->
     <section class="transparent-bg">
@@ -65,7 +66,7 @@
       <div class="sidebarbox">
       <% unless @media.empty? %>
         <div class="sidebarbox-title">
-          <h3>Ultimos Videos</h3>
+          <h3>Resumenes de Partidos</h3>
         </div>
         <!-- GALLERY -->
           <ul class="team-gallery">
@@ -100,7 +101,7 @@
       <% unless @latest_scores.empty? %>
         <div class="sidebarbox">
           <div class="sidebarbox-title">
-            <h3>Últimos resultados</h3>
+            <h3>Ultimos resultados</h3>
           </div>
           <!-- TABLE -->
           <div class="fixture-row">
@@ -119,6 +120,7 @@
       <div class="sidebarbox">
         <% unless @comments.empty? %>
           <h3>Ultimos Comentarios</h3>
+          <p>(Para comentar tiene que registrarse)</p>
           <% @comments.reverse.each do |comment| %>
             <div class="comments">
               <p class="meta">

@@ -27,7 +27,6 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = @contest.entries.new(entry_params)
-
     respond_to do |format|
       if @entry.save
         format.html { redirect_to contest_path(@contest), notice: 'Entry was successfully created.' }
@@ -62,7 +61,6 @@ class EntriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
