@@ -16,7 +16,7 @@
           <% unless @games.empty? %>
             <% @games.each do |game| %>
               <tr>
-                <td class="text-center"><%= game.group.upcase %></td>
+                <td class="text-center"><%= game.group.empty?? "-" : game.group.upcase %></td>
                 <td class="text-center"><%= game.team_a_name %></td>
                 <td class="text-right"><%= game.team_a_result.nil? ? "?" : game.team_a_result %></td>
                 <td>-</td>

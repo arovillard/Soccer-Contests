@@ -34,7 +34,7 @@
 
   <p>
     <strong>Group:</strong>
-    <%= @game.group %>
+    <%= @game.group.empty?? "-" : @game.group.upcase %>
   </p>
 
   <%= link_to 'Edit', edit_contest_game_path(@contest,@game) %> |

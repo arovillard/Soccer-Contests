@@ -18,7 +18,7 @@
           <% unless @entries.empty? %>
             <% @entries.each do |entry| %>
               <tr>
-                <td class="text-center"><%= entry.game.group.upcase %></td>
+                <td class="text-center"><%= entry.game.group.empty?? "-" : entry.game.group.upcase %></td>
                 <td class="text-center"><%= entry.team_a_name %></td>
                 <td class="text-right"><%= entry.team_a_score.nil? ? "?" : entry.team_a_score %></td>
                 <td>-</td>
