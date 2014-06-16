@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = @contest.games
+    @games = @contest.games.order(game_date: :desc)
     @comments = @contest.comments.all.reverse
     @comment = @contest.comments.new
   end

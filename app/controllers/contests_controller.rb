@@ -6,7 +6,7 @@ class ContestsController < ApplicationController
   # GET /contests.json
   def index
     @contests = Contest.all.where(:active => true)
-    @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 5.hour).order(game_date: :asc)
+    @next_games = Game.where({:active => true, :team_a_result => nil, :team_b_result => nil}).where("game_date > ?", Time.zone.now + 1.hour).order(game_date: :asc)
     @latest_scores = Game.where.not({:team_a_result => nil, :team_b_result => nil}).where("game_date < ?", Time.zone.now).order(game_date: :desc).limit(8)
     @comments = Comment.order('created_at DESC').limit(5).reverse
     @media = Medialink.order('created_at DESC').limit(9)
