@@ -6,7 +6,7 @@
       <%= devise_error_messages! %>
 
       <div><%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %></div>
+      <%= f.email_field :email, autofocus: true, required: true %></div>
 
       <div>Nombre<br />
       <%= f.text_field :name, autocomplete: true, required: true %></div>
@@ -22,6 +22,16 @@
 
       <div>Confirmar contraseña<br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+      <div>
+        Terminos y Condiciones: <br>
+        <textarea  readonly="yes" style="height: 200px">
+         <%= render "legal" %>
+        </textarea>
+      </div>
+      <div>
+        <label><input type="checkbox" name="checkbox" value="value" required>  Aceptar Reglas Y Condiciones</label>
+      </div>
 
       <div><%= f.submit "Registrarse", :class => "button" %></div>
     <% end %>

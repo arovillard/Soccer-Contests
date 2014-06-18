@@ -6,6 +6,7 @@ Wcc::Application.routes.draw do
   root to: 'contests#index'
   get '/user' => 'pages#user', :as => 'user'
   get '/contact' => 'pages#contact', :as => 'contact'
+  get '/contest_rules' => 'pages#contest_rules', :as => 'contest_rules'
   resources :contests do
     resources :comments
     resources :entries
