@@ -1,5 +1,6 @@
 ActiveAdmin.register Medialink do
   permit_params :url, :title, :video, :photo
+  menu :label => "Fotos y Videos"
 
 
   # See permitted parameters documentation:

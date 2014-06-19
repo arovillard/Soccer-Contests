@@ -1,4 +1,5 @@
 ActiveAdmin.register Contest do
+  menu :label => "Concursos"
 
 
   # See permitted parameters documentation:

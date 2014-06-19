@@ -1,4 +1,6 @@
 ActiveAdmin.register Game do
+  menu :label => "Partidos"
+  config.sort_order = "game_date"
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
